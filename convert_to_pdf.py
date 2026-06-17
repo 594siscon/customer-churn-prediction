@@ -205,6 +205,7 @@ def main():
         edge_path,
         "--headless",
         "--disable-gpu",
+        "--no-pdf-header-footer",
         f"--print-to-pdf={abs_pdf}",
         abs_html
     ]
