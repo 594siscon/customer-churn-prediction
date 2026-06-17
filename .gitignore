@@ -1,0 +1,27 @@
+# 忽略數據資料夾與試算表 (保護隱私)
+data/
+*.csv
+*.xlsx
+
+# 忽略機器學習模型與權重檔案 (大型二進位檔)
+models/
+*.joblib
+*.pkl
+
+# 忽略 Python 虛擬環境
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 忽略 IDE 暫存與系統設定檔
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
