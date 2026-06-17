@@ -17,8 +17,17 @@ def main():
     title = "電商客戶價值分析與預測報告"
     subtitle = "基於隨機森林與 TreeSHAP 歸因的深度分析"
     
-    # Convert markdown to html with extra extensions for tables and code blocks.
-    html_body = markdown.markdown(md_content, extensions=['extra'])
+    # Convert markdown to html with extra extensions, including toc for dynamic table of contents.
+    html_body = markdown.markdown(
+        md_content,
+        extensions=['extra', 'toc'],
+        extension_configs={
+            'toc': {
+                'title': '目錄',
+                'toc_depth': '2-3'
+            }
+        }
+    )
     
     # Let's wrap it in a beautiful CSS layout.
     css_styles = """
@@ -160,6 +169,62 @@ def main():
         height: 1px;
         background: #e2e8f0;
         margin: 40px 0;
+    }
+    
+    /* Page Break Helper */
+    .page-break {
+        page-break-after: always;
+    }
+    
+    /* Table of Contents (TOC) Styling */
+    .toc {
+        background-color: #f7fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 24px 28px;
+        margin: 30px 0;
+        break-inside: avoid;
+    }
+    .toctitle {
+        display: block;
+        font-size: 14pt;
+        font-weight: 700;
+        color: #1a365d;
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #cbd5e0;
+        padding-bottom: 8px;
+    }
+    .toc ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    .toc li {
+        margin-bottom: 10px;
+        font-size: 11pt;
+        font-weight: 600;
+    }
+    .toc li a {
+        color: #2b6cb0;
+        text-decoration: none;
+    }
+    .toc li a:hover {
+        color: #2c5282;
+        text-decoration: underline;
+    }
+    .toc ul ul {
+        padding-left: 20px;
+        margin-top: 8px;
+        margin-bottom: 4px;
+    }
+    .toc ul ul li {
+        font-size: 10pt;
+        font-weight: 400;
+        margin-bottom: 6px;
+    }
+    .toc ul ul li a {
+        color: #4a5568;
     }
     """
     
